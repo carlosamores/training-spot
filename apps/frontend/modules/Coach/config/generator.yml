@@ -1,0 +1,28 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           coach
+    theme:                 jroller
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          coach
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        first_name: { label: Nombre }
+        last_name: { label: Apellido }
+        birthday: { label: Fecha de Nacimiento }
+        address: { label: Dirección postal}
+        phones: { label: Telefonos }
+      list:    ~
+      filter:  ~
+      form:    ~
+      edit:
+        title: Editar Profesor
+      new:
+        title: Nuevo Profesor
