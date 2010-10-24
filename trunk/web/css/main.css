@@ -1,0 +1,44 @@
+ul.menu li  {
+   display: inline;
+   background-color: #EDEDDE;
+}
+
+.class_box {
+ 	border: 1px solid #c5dbec; 
+ 	background: #dfeffc url(images/ui-bg_glass_85_dfeffc_1x400.png) 50% 50% repeat-x; 
+ 	font-weight: bold; 
+ 	color: #2e6e9e; 
+ 	outline: none;
+ 	float: left;
+ 	min-width:150px;
+ 	min-height:40px;
+ 	padding: 0px 2px 4px 3px;
+}
+
+.class_box .class_info {
+	top: -100;
+	min-width:130px;
+	background: #FFFFFF;
+	border: thin solid #C5DBEC;
+	position:absolute;
+	font-size: 10px;
+	padding: 1px 0px 1px 1px;
+}
+.class_box a, .class_box a:visited {
+	color: #2e6e9e; 
+	text-decoration: none; 
+	outline: none;
+}
+.class_box .more {
+	font-size:10px;
+	text-decoration: underline;
+	float: right;	
+} 
+.class_box .coaches { 
+   	font-size:10px;
+   	text-decoration: italic;
+   	list-style: none;
+	padding: 0;
+	margin: 0;
+   
+}

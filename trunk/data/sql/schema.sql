@@ -1,0 +1,18 @@
+CREATE TABLE abstract_class (id BIGINT AUTO_INCREMENT, place_id BIGINT, class_type_id BIGINT, day_of_the_week VARCHAR(255) DEFAULT '0', start_hour VARCHAR(255) DEFAULT '7', end_hour VARCHAR(255) DEFAULT '7', start_min VARCHAR(255) DEFAULT '0', end_min VARCHAR(255) DEFAULT '0', INDEX place_id_idx (place_id), INDEX class_type_id_idx (class_type_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE abstract_person (id BIGINT AUTO_INCREMENT, first_name VARCHAR(255) NOT NULL, last_name VARCHAR(255) NOT NULL, birthday DATE NOT NULL, email VARCHAR(255), address VARCHAR(255), phones VARCHAR(255), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE class_per_client (client_id BIGINT, abstract_class_id BIGINT, PRIMARY KEY(client_id, abstract_class_id)) ENGINE = INNODB;
+CREATE TABLE class_per_coach (coach_id BIGINT, abstract_class_id BIGINT, PRIMARY KEY(coach_id, abstract_class_id)) ENGINE = INNODB;
+CREATE TABLE class_type (id BIGINT AUTO_INCREMENT, type_name VARCHAR(50) NOT NULL UNIQUE, PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE client (id BIGINT AUTO_INCREMENT, first_name VARCHAR(255) NOT NULL, last_name VARCHAR(255) NOT NULL, birthday DATE NOT NULL, email VARCHAR(255), address VARCHAR(255), phones VARCHAR(255), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE coach (id BIGINT AUTO_INCREMENT, first_name VARCHAR(255) NOT NULL, last_name VARCHAR(255) NOT NULL, birthday DATE NOT NULL, email VARCHAR(255), address VARCHAR(255), phones VARCHAR(255), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE medical_revision (id BIGINT AUTO_INCREMENT, client_id BIGINT, date DATE NOT NULL, passed TINYINT(1) DEFAULT '1', comments VARCHAR(255), INDEX client_id_idx (client_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE membership_fee (id BIGINT AUTO_INCREMENT, client_id BIGINT, date DATE NOT NULL, amount FLOAT(18, 2) DEFAULT 0, INDEX client_id_idx (client_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE place (id BIGINT AUTO_INCREMENT, place_name VARCHAR(50) NOT NULL UNIQUE, maximum_capacity BIGINT DEFAULT 0, PRIMARY KEY(id)) ENGINE = INNODB;
+ALTER TABLE abstract_class ADD CONSTRAINT abstract_class_place_id_place_id FOREIGN KEY (place_id) REFERENCES place(id);
+ALTER TABLE abstract_class ADD CONSTRAINT abstract_class_class_type_id_class_type_id FOREIGN KEY (class_type_id) REFERENCES class_type(id);
+ALTER TABLE class_per_client ADD CONSTRAINT class_per_client_client_id_client_id FOREIGN KEY (client_id) REFERENCES client(id);
+ALTER TABLE class_per_client ADD CONSTRAINT class_per_client_abstract_class_id_abstract_class_id FOREIGN KEY (abstract_class_id) REFERENCES abstract_class(id);
+ALTER TABLE class_per_coach ADD CONSTRAINT class_per_coach_coach_id_coach_id FOREIGN KEY (coach_id) REFERENCES coach(id);
+ALTER TABLE class_per_coach ADD CONSTRAINT class_per_coach_abstract_class_id_abstract_class_id FOREIGN KEY (abstract_class_id) REFERENCES abstract_class(id);
+ALTER TABLE medical_revision ADD CONSTRAINT medical_revision_client_id_client_id FOREIGN KEY (client_id) REFERENCES client(id);
+ALTER TABLE membership_fee ADD CONSTRAINT membership_fee_client_id_client_id FOREIGN KEY (client_id) REFERENCES client(id);

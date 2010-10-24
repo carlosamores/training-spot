@@ -1,0 +1,55 @@
+# # Populate this file with data to be loaded by your ORM's *:data-load task.
+# # You can create multiple files in this directory (i.e. 010_users.yml,
+# # 020_articles.yml, etc) which will be loaded in alphabetical order.
+# # 
+# # See documentation for your ORM's *:data-load task for more information.
+# 
+# User:
+#   fabien:
+#     username: fabien
+#     password: changeme
+#     name:     Fabien Potencier
+#     email:    fabien.potencier@symfony-project.com
+#   kris:
+#     username: Kris.Wallsmith
+#     password: changeme
+#     name:     Kris Wallsmith
+#     email:    kris.wallsmith@symfony-project.com
+
+Place:
+  pileta_chica: { place_name: Pileta Chica, maximum_capacity: 12 }
+  pileta_fondo: { place_name: Pileta Grande, maximum_capacity: 16 }
+  pileta_adelante: { place_name: Pileta Medio, maximum_capacity: 14 }
+  gimnasio : { place_name: Gimnasio, maximum_capacity: 20 }
+
+ClassType:
+  nenes: { type_name: Niños }
+  adultos: { type_name: Jovenes y adultos }
+  aquagym: { type_name: Aquagym }  
+  especial: { type_name: Clase especial }
+  libre: { type_name: Clase libre }
+  pilates: { type_name: Pilates }
+  
+Coach:
+  Gonzalo:
+    first_name: Gonzalo
+    last_name: Villarreal
+    birthday: 12-25-2010
+    email: gonetil@gmail.com
+    address: 212
+    phones: 3132  
+  Matias:
+    first_name: Matias
+    last_name: Rios
+    birthday: 12-25-2010
+    email: matirios@gmail.com
+    address: 212
+    phones: 3132  
+  Sebas:
+    first_name: Sebastian
+    last_name: Rios
+    birthday: 12-25-2010
+    email: sebarios@gmail.com
+    address: 212
+    phones: 3132  
+
