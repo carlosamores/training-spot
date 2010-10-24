@@ -1,0 +1,79 @@
+medical_revision:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                MedicalRevision
+    module:               MedicalRevision
+    prefix_path:          /MedicalRevision
+    column:               id
+    with_wildcard_routes: true
+
+membership_fee:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                MembershipFee
+    module:               MembershipFee
+    prefix_path:          /MembershipFee
+    column:               id
+    with_wildcard_routes: true
+
+abstract_class:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                AbstractClass
+    module:               AbstractClass
+    prefix_path:          /AbstractClass
+    column:               id
+    with_wildcard_routes: true
+
+coach:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Coach
+    module:               Coach
+    prefix_path:          /Coach
+    column:               id
+    with_wildcard_routes: true
+
+classtype:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                classtype
+    module:               ClassType
+    prefix_path:          /ClassType
+    column:               id
+    with_wildcard_routes: true
+
+place:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                place
+    module:               Place
+    prefix_path:          /Place
+    column:               id
+    with_wildcard_routes: true
+
+client:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                client
+    module:               Client
+    prefix_path:          /Client
+    column:               id
+    with_wildcard_routes: true
+
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+# default rules
+homepage:
+  url:   /
+  param: { module: default, action: index }
+
+# generic rules
+# please, remove them by adding more specific rules
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*

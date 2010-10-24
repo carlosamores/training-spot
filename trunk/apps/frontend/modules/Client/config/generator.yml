@@ -1,0 +1,33 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           client
+    theme:                 jroller
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          client
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+    # extra: [show, print, export]
+
+    config:
+      actions: ~
+      fields:
+        first_name: {label: Nombres }
+        last_name: {label: Apellido }
+        birthday: {label: Fecha de Nacimiento}
+        address: {label: Dirección postal}
+        phones: {label: Teléfonos}
+        classes_list: {label: Clases disponibles}
+      list:
+        display: [last_name, first_name, email, phones, birthday]
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~
+      show:
+        title: Detalle del alumno
+        display: [ _medical_revisions, _payments, first_name, last_name, birthday, email, address, phones, _classes]
+        

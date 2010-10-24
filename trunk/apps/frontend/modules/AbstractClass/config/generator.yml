@@ -1,0 +1,32 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           AbstractClass
+    theme:                 jroller
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          abstract_class
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+    # extra: [show, print, export]
+
+    config:
+      actions: ~
+      fields:
+        place_name: {label: Lugar}
+        class_type_name: {label: Tipo de clase}
+        start_time: {label: Hora de inicio}
+        end_time: {label: Hora de fin}
+        count_clients: {label: Cant. alumnos}
+      list:
+        title: Listado de clases
+        display: [place_name,class_type_name,start_time,end_time, count_clients]
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~
+      show:
+        title: Detalle de la clase
+        display: [ _clients_list, place_name,class_type_name,start_time,end_time]
